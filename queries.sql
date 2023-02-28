@@ -1,5 +1,8 @@
 /*Queries that provide answers to the questions from all projects.*/
 
+/*Queries that provide answers to the questions from all projects.*/
+
+
 -- Show all animals
 select * from animals
 
@@ -84,17 +87,24 @@ select count(*) from animals where escape_attempts = 0;
 select avg(weight_kg) from animals;
 
 -- · Who escapes the most, neutered or not neutered animals? r/ neutered (20 attempts)
-vet_clinic=# select sum(escape_attempts) from animals where neutered = true;
-vet_clinic=# select sum(escape_attempts) from animals where neutered = false;
+select neutered, sum(escape_attempts) from animals group by neutered;
+ neutered | sum 
+----------+-----
+ f        |   4
+ t        |  20
+(2 rows)
+
 
 -- · What is the minimum and maximum weight of each type of animal?
-select min(weight_Kg) from animals where species = 'Pokemon'; --11 kg
-select max(weight_Kg) from animals where species = 'Pokemon'; --17 kg
-
-select min(weight_Kg) from animals where species = 'Digimon'; --5.7 Kg
-select max(weight_Kg) from animals where species = 'Digimon'; --45 Kg
+select species,  min(weight_kg), max(weight_kg) from animals group by species;
+ species | min | max 
+---------+-----+-----
+ Digimon | 5.7 |  45
+ Pokemon |  11 |  17
 
 -- · What is the average number of escape attempts per animal type
 --   of those born between 1990 and 2000?
-select avg(escape_attempts) from animals where species = 'Pokemon'and date_of_birth > '1989-12-31' and date_of_birth < '2001-01-01'; --3
-select avg(escape_attempts) from animals where species = 'Digimon'and date_of_birth > '1989-12-31' and date_of_birth < '2001-01-01'; --0
+select species, avg(escape_attempts) from animals where extract(year from  date_of_birth) between 1900 and 2000 group by species;
+ species |        avg         
+---------+--------------------
+ Pokemon | 3.0000000000000000
