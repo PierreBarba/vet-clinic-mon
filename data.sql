@@ -11,3 +11,19 @@ INSERT INTO ANIMALS (id,name, date_of_birth,neutered,escape_attempts,weight_kg) 
 INSERT INTO ANIMALS (id,name, date_of_birth,neutered,escape_attempts,weight_kg) VALUES (9,'Boarmon','2005-06-07',true,7,20.4);
 INSERT INTO ANIMALS (id,name, date_of_birth,neutered,escape_attempts,weight_kg) VALUES (10,'Blossom','1998-10-13',true,3,17);
 INSERT INTO ANIMALS (id,name, date_of_birth,neutered,escape_attempts,weight_kg) VALUES (11,'Ditto','2022-05-14',true,4,22);
+
+INSERT INTO owners values(default, 'Jennifer Orwell', 19);
+INSERT INTO owners values(default, 'Bob', 45);
+INSERT INTO owners values(default, 'Melody Pond', 77);
+INSERT INTO owners values(default, 'Dean Winchester', 14);
+INSERT INTO owners values(default, 'Jodie Whittaker', 38);
+
+INSERT INTO species (name) values ('Pokemon'),('Digimon');
+update animals set species_id=2 where name like '%mon';
+update animals set species_id=1 where species_id is null;
+
+UPDATE animals SET owner_id=1 WHERE name='Agumon';
+UPDATE animals SET owner_id=2 WHERE name='Gabumon' OR name = 'Pikachu';
+UPDATE animals SET owner_id=3 WHERE name='Devimon' or name = 'Plantmon';
+UPDATE animals SET owner_id=4 WHERE name='Charmander' OR name = 'Squirtle' OR name = 'Blossom';
+UPDATE animals SET owner_id=5 WHERE name='Angemon' OR name = 'Boarmon';
