@@ -160,8 +160,9 @@ SELECT animals.*, visits.date_of_visit FROM animals FULL JOIN visits ON animals.
 SELECT animals.* ,  vets.*, visits.date_of_visit FROM animals LEFT JOIN visits ON animals.id = visits.animals_id LEFT JOIN vets ON visits.vets_id = vets.id ORDER BY date_of_visit DESC LIMIT 1;
 
 -- How many visits were with a vet that did not specialize in that animal's species?
-SELECT COUNT(*) FROM visits FULL JOIN vets ON visits.vets_id = vets.id FULL JOIN specializations ON specializations.vets_id = vets.id WHERE 
-(SELECT species_id FROM animals WHERE animals.id = visits.animals_id) != species_id;
+SELECT COUNT(*) FROM visits INNER JOIN animals ON visits.animals_id = animals.id LEFT JOIN specializations ON specializations.species_id = animals.species_id AND visits.vets_id = 
+specializations.vets_id WHERE specializations.species_id IS NULL AND specializations.vets_id  IS NULL;
+
 
 
 -- What specialty should Maisy Smith consider getting? Look for the species she gets the most. --Digimon
