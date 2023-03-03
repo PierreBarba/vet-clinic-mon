@@ -28,6 +28,17 @@ UPDATE animals SET owner_id=3 WHERE name='Devimon' or name = 'Plantmon';
 UPDATE animals SET owner_id=4 WHERE name='Charmander' OR name = 'Squirtle' OR name = 'Blossom';
 UPDATE animals SET owner_id=5 WHERE name='Angemon' OR name = 'Boarmon';
 
+INSERT INTO specializations (species_id, vets_id) VALUES (1,1);
+INSERT INTO specializations (species_id, vets_id) VALUES (3,1);
+INSERT INTO specializations (species_id, vets_id) VALUES (1,3);
+INSERT INTO specializations (species_id, vets_id) VALUES (2,3);
+INSERT INTO specializations (species_id, vets_id) VALUES (2,4);
+
+INSERT INTO vets (age,name, date_of_graduation) VALUES (45, 'William Tatcher' ,'2000-04-23');
+INSERT INTO vets (age,name, date_of_graduation) VALUES (26, 'Maisy Smith' ,'2019-01-17');
+INSERT INTO vets (age,name, date_of_graduation) VALUES (64, 'Stephanie Mendez' ,'1981-05-04');
+INSERT INTO vets (age,name, date_of_graduation) VALUES (38, 'Jack Harkness' ,'2008-06-08');
+
 INSERT INTO visits (animals_id, vets_id, date_of_visit) VALUES (1, 1, '2020-05-24'),
 INSERT INTO visits (animals_id, vets_id, date_of_visit) VALUES (1, 3, '2020-07-22'),
 INSERT INTO visits (animals_id, vets_id, date_of_visit) VALUES (2, 4, '2021-02-02'),
