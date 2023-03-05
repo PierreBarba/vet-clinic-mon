@@ -15,3 +15,8 @@ ALTER TABLE animals ADD constraint fk_constraint2 foreign key(owner_id) referenc
 CREATE TABLE vets (id int generated always as identity, name varchar(50), age integer,date_of_graduation date, primary key(id));
 CREATE TABLE visits (animals_id int references animals(id),vets_id int references vets(id),date_of_visit date);
 CREATE TABLE specializations (species_id int references species(id),vets_id int references vets(id), PRIMARY KEY(species_id,vets_id));
+
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+INSERT INTO visits (animals_id, vets_id, date_of_visit) SELECT * FROM (SELECT id FROM animals) animal_ids, (SELECT id FROM vets) vets_ids, generate_series('1980-01-01'::timestamp, '2021-01-01', '4 hours') visit_timestamp;
+INSERT INTO owners (full_name, email) select 'Owner ' || generate_series(1,2500000), 'owner_' || generate_series(1,2500000) || '@mail.com';
+EXPLAIN ANALYZE SELECT COUNT(*) FROM visits where animals_id = 4;
