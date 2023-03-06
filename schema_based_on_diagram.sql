@@ -16,3 +16,5 @@ CREATE TABLE invoice_items (id SERIAL NOT NULL PRIMARY KEY,unit_price DECIMAL,qu
     treatment_id INT REFERENCES treatments(id));
 
 CREATE INDEX patient_id ON medical_histories(patient_id ASC);
+
+CREATE INDEX medic_his_id ON medical_histories_treatments(medical_histories_id ASC);
