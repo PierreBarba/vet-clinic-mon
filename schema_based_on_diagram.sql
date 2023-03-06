@@ -24,3 +24,5 @@ CREATE INDEX treatments_id ON medical_histories_treatments(treatments ASC);
 CREATE INDEX medic2_his_id ON invoices(medical_history_id ASC);
 
 CREATE INDEX inv_id ON invoice_items(invoice_id ASC);
+
+CREATE INDEX treat2_id ON invoice_items(treatment_id ASC);
