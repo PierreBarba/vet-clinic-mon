@@ -22,3 +22,5 @@ CREATE INDEX medic_his_id ON medical_histories_treatments(medical_histories_id A
 CREATE INDEX treatments_id ON medical_histories_treatments(treatments ASC);
 
 CREATE INDEX medic2_his_id ON invoices(medical_history_id ASC);
+
+CREATE INDEX inv_id ON invoice_items(invoice_id ASC);
