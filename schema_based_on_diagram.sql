@@ -14,3 +14,5 @@ CREATE TABLE invoices ( id SERIAL NOT NULL PRIMARY KEY,total_amount DECIMAL,gene
     
 CREATE TABLE invoice_items (id SERIAL NOT NULL PRIMARY KEY,unit_price DECIMAL,quantity INT,total_price DECIMAL,invoice_id INT REFERENCES invoices(id),
     treatment_id INT REFERENCES treatments(id));
+
+CREATE INDEX patient_id ON medical_histories(patient_id ASC);
