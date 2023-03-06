@@ -51,6 +51,13 @@ This repository includes files with plain SQL that can be used to recreate a dat
 </details>
 <!-- Features -->
 
+
+## 🛠 Schema Diagram <a name="built-with"></a>
+
+ <p align='center'><img  src="schema.png" width="490" height="300" ></p>
+ 
+  <h2><b>Schema Diagram</b></h2>
+
 ### Key Features <a name="key-features"></a>
 - *Creating new tables examples*
 - *Adding data examples*
