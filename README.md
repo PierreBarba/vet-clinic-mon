@@ -1,5 +1,5 @@
 <div align="center">
-  <p align='center'><img  src="vet-clinic.gif" width="490" height="300" ></p>
+  <p align='center'><img  src="vet-clinic-mon.gif" width="490" height="400" ></p>
   <h1><b>Vet Clinic</b></h1>
 
 </div>
